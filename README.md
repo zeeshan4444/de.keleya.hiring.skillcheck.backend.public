@@ -65,7 +65,7 @@ Command lines:
 - Add all your notes into this readme
 - Send us the link to your fork
 - Tell us how long it took you to get the repository to the state you sent us - remember: it's ok to take time if it's done properly.
-- - Import Hiring Backend Test.postman_collection.json into the latest Postman client and run the collection tests. Depending on how you seed your database, some tests may need to be adjusted for ids. Please take a screenshot of the results like this one:
+- Import Hiring Backend Test.postman_collection.json into the latest Postman client and run the collection tests. Depending on how you seed your database, some tests may need to be adjusted for ids. Please take a screenshot of the results like this one:
 - ![postman_tests.png](postman_tests.png)
 - Send us this screenshot as well as the export of your postman tests.
 
