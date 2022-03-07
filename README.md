@@ -79,17 +79,17 @@ yarn test
 ```
 ### Your Notes Below Here
 
-- Why you did not create the module for user and auth and prisma module and add module only in app.module.ts
-- Better to create the is_archive and archive_at for soft delete for easy check and better control and time when we soft deleted.
 - The data model should be singular like "User" and "Credential"
 - The resource name should be plural like "users" 
-- Update user api id should be in params rather than body 
+- Better to create the is_archive and archive_at for soft delete for easy check and better control and time to see when we soft deleted.
+- Should be more modular like creating module for users, prisma, auth and add to app mdoule. 
+- Update user api "id" should be in params rather than body 
 - Api to confirm email account of user so only confirmed email can login
-- Delete api user id should in params instead of body
+- Delete api user "id" should in params instead of body
 - Should have functionlity and schema to blacklist jwt tokens
 - Utitlity function for error and response as per frontend need.
 - API to create genrate another access token from refresh token.
 - For now not exculding the deleted user from get all api and fetch specific. If bussiness requirement can be done easily.
 - Some logic were based on bussiness logic so i comment that part in codebase and can enable based on request
-
+- Not sure about applying public and private API But I generated Admin and public guard. It is commented on controller and can easily be applied.
 ...
