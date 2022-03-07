@@ -1,19 +1,15 @@
 import { Module } from '@nestjs/common';
-import { PrismaService } from './prisma.services';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
+import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { APP_FILTER } from '@nestjs/core';
 import { QueryExceptionFilter } from './common/exception-filters/query-exception.filter';
-import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './common/strategies/jwt.strategy';
-import { PassportModule } from '@nestjs/passport';
 import { AppController } from './app.controller';
-
+import { UserModule } from './user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
+      isGlobal: true,
       envFilePath: !process.env.NODE_ENV ? '.env' : `.env.${process.env.NODE_ENV}`,
       ignoreEnvFile: process.env.NODE_ENV === 'production',
       cache: true,
@@ -24,26 +20,10 @@ import { AppController } from './app.controller';
         JWT_SECRET: Joi.string(),
       }),
     }),
-    PassportModule,
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_SECRET'),
-        signOptions: {
-          expiresIn: '1year',
-          algorithm: 'HS256',
-        },
-      }),
-    }),
+    PrismaModule,
+    UserModule,
   ],
-  controllers: [AppController, UserController],
-  providers: [
-    UserService,
-    PrismaService,
-    ConfigService,
-    JwtStrategy,
-    { provide: APP_FILTER, useClass: QueryExceptionFilter },
-  ],
+  controllers: [AppController],
+  providers: [{ provide: APP_FILTER, useClass: QueryExceptionFilter }],
 })
 export class AppModule {}

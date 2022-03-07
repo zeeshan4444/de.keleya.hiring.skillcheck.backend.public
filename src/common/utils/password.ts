@@ -1,15 +1,20 @@
-import { NotImplementedException } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
+//Todo: bcrypt package doesnot work will look into later
+//import * as bcrypt from 'bcrypt';
+
+import * as bcrypt from 'bcryptjs';
 
 const saltOrRounds = 10;
 export const hashPassword = async (password: string): Promise<string> => {
-  throw new NotImplementedException();
+  const salt = await bcrypt.genSalt(saltOrRounds);
+  return bcrypt.hash(password, salt);
 };
 
 export const hashPasswordSync = (password: string): string => {
-  throw new NotImplementedException();
+  // const salt = await bcrypt.genSalt(saltOrRounds);
+  // return bcrypt.hashSync(password, salt);
+  return;
 };
 
 export const matchHashedPassword = async (password: string, hash: string): Promise<boolean> => {
-  throw new NotImplementedException();
+  return bcrypt.compareSync(password, hash);
 };

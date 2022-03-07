@@ -12,11 +12,21 @@ export class UnencryptedPasswordValidator implements ValidatorConstraintInterfac
     return this.isValidPassword(val);
   }
 
+  // Todo: Criteria can be part of config table.
   isValidPassword(passwordToValidate: string): boolean {
     if (!passwordToValidate) return false;
-    // TODO: implement validation rules
-    if (passwordToValidate.length < 6) return false;
-    return true;
+    // TODO: Uncomment the check as per bussiness logic
+    if (
+      // /(?=.*?[a-z])/.test(passwordToValidate) &&
+      // /(?=.*?[A-Z])/.test(passwordToValidate) &&
+      // /(?=.*?[0-9])/.test(passwordToValidate) &&
+      passwordToValidate.length > 4 &&
+      passwordToValidate.length <= 20
+    )
+      return true;
+    else {
+      return false;
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

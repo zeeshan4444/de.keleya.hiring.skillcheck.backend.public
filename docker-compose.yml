@@ -1,0 +1,25 @@
+version: "3.7"
+
+networks:
+  main-network:
+
+services:
+
+  app:
+    image: node:14
+    container_name: app
+    restart: always
+    volumes:
+    #  - ./de.keleya.hiring.skillcheck.backend.public:/home/node/app
+       - ./:/home/node/app
+    working_dir: /home/node/app
+    networks:
+      - main-network
+    ports:
+      - 3000:3000
+    command: "npm run start:dev"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"

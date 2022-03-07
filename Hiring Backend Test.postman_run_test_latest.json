@@ -1,0 +1,639 @@
+{
+	"id": "2f38baf3-24e6-4228-8ae8-8d12f254a4a2",
+	"name": "Hiring Backend Test",
+	"timestamp": "2022-03-06T20:54:58.566Z",
+	"collection_id": "0-c213908e-1039-4695-8843-65d2cf701f00",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 29,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "dbd9e4e8-9ac9-458e-916a-7ff4895e07e5",
+			"name": "Find only current user",
+			"url": "http://localhost:3000/user",
+			"time": 40,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Value should be 3": true
+			},
+			"testPassFailCounts": {
+				"Value should be 3": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				40
+			],
+			"allTests": [
+				{
+					"Value should be 3": true
+				}
+			]
+		},
+		{
+			"id": "1afcd0c3-353c-4465-bcb8-73fd75233755",
+			"name": "Ignore search for other",
+			"url": "http://localhost:3000/user?id=3&id=1",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Value should be 3": true
+			},
+			"testPassFailCounts": {
+				"Value should be 3": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Value should be 3": true
+				}
+			]
+		},
+		{
+			"id": "f3784d0a-62c3-4b27-85dd-627eecc81a08",
+			"name": "Fail get on other id",
+			"url": "http://localhost:3000/user/3132",
+			"time": 3,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "232d33b9-ce58-47b1-8f65-a33d817aecc4",
+			"name": "Get own user id",
+			"url": "http://localhost:3000/user/3",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "632aaf6c-716e-488b-b5b7-004a3215b3e6",
+			"name": "Update own name",
+			"url": "http://localhost:3000/user/3",
+			"time": 184,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Name is updated": true,
+				"Updated At != Created At": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is updated": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Updated At != Created At": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				184
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Name is updated": true,
+					"Updated At != Created At": true
+				}
+			]
+		},
+		{
+			"id": "0890bd95-019d-427b-b3f8-b1a4cb166267",
+			"name": "Authenticate",
+			"url": "http://localhost:3000/user/authenticate",
+			"time": 90,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Has credentials": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Has credentials": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				90
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Has credentials": true
+				}
+			]
+		},
+		{
+			"id": "92e9b062-517a-437a-b21f-d47bc5382b5d",
+			"name": "Get Token",
+			"url": "http://localhost:3000/user/token",
+			"time": 81,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Has token": true,
+				"Is JWT token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Has token": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Is JWT token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				81
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Has token": true,
+					"Is JWT token": true
+				}
+			]
+		},
+		{
+			"id": "0a4cae5d-6cd5-4b49-b2df-6604715c62ca",
+			"name": "Validate Token",
+			"url": "http://localhost:3000/user/validate",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "6b1568bd-fed9-4b7f-aa9f-afba96f742ef",
+			"name": "Authenticate",
+			"url": "http://localhost:3000/user/authenticate",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Has credentials": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Has credentials": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Has credentials": true
+				}
+			]
+		},
+		{
+			"id": "307e3890-8c30-4b96-b84c-c0f452f95d3e",
+			"name": "Get Token",
+			"url": "http://localhost:3000/user/token",
+			"time": 80,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Has token": true,
+				"Is JWT token": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Has token": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Is JWT token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				80
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Has token": true,
+					"Is JWT token": true
+				}
+			]
+		},
+		{
+			"id": "8bdce5e5-779c-43bb-86f6-27ca192900b6",
+			"name": "Validate Token",
+			"url": "http://localhost:3000/user/validate",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "9b9afc79-a676-4577-a0b4-f0b3322bda57",
+			"name": "Find all users",
+			"url": "http://localhost:3000/user",
+			"time": 13,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Should return array of all user": true
+			},
+			"testPassFailCounts": {
+				"Should return array of all user": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Should return array of all user": true
+				}
+			]
+		},
+		{
+			"id": "6bc743b7-8030-4def-af45-6d4ce5ee150d",
+			"name": "Find all users containing ma in name",
+			"url": "http://localhost:3000/user?name=ma",
+			"time": 19,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Should return array of users": true,
+				"Names should contain 'ma'": true
+			},
+			"testPassFailCounts": {
+				"Should return array of users": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Names should contain 'ma'": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Should return array of users": true,
+					"Names should contain 'ma'": true
+				}
+			]
+		},
+		{
+			"id": "18c248ad-3070-4035-b9ee-f1f41627f441",
+			"name": "Get specific user",
+			"url": "http://localhost:3000/user/31",
+			"time": 4,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "e0c444ec-c190-42f2-b7de-5d1186ef46b9",
+			"name": "Create new user",
+			"url": "http://localhost:3000/user",
+			"time": 348,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				348
+			],
+			"allTests": [
+				{
+					"Status code is 201": true
+				}
+			]
+		},
+		{
+			"id": "2736a9be-16f5-4690-99a5-09bb12d8f821",
+			"name": "Delete that user",
+			"url": "http://localhost:3000/user/15",
+			"time": 279,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Name deleted": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name deleted": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				279
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Name deleted": true
+				}
+			]
+		},
+		{
+			"id": "2eeacf88-8618-4d81-ae28-b066efed9b2a",
+			"name": "Update a user name",
+			"url": "http://localhost:3000/user/12",
+			"time": 200,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Name is updated": true,
+				"Updated At != Created At": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Name is updated": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Updated At != Created At": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				200
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Name is updated": true,
+					"Updated At != Created At": true
+				}
+			]
+		},
+		{
+			"id": "ea29d47e-632f-4bc8-ad8d-d0ee2b18e92b",
+			"name": "health-check",
+			"url": "http://localhost:3000/api/_health",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				3
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1457,
+	"collection": {
+		"requests": [
+			{
+				"id": "dbd9e4e8-9ac9-458e-916a-7ff4895e07e5",
+				"method": "GET"
+			},
+			{
+				"id": "1afcd0c3-353c-4465-bcb8-73fd75233755",
+				"method": "GET"
+			},
+			{
+				"id": "f3784d0a-62c3-4b27-85dd-627eecc81a08",
+				"method": "GET"
+			},
+			{
+				"id": "232d33b9-ce58-47b1-8f65-a33d817aecc4",
+				"method": "GET"
+			},
+			{
+				"id": "632aaf6c-716e-488b-b5b7-004a3215b3e6",
+				"method": "PATCH"
+			},
+			{
+				"id": "0890bd95-019d-427b-b3f8-b1a4cb166267",
+				"method": "POST"
+			},
+			{
+				"id": "92e9b062-517a-437a-b21f-d47bc5382b5d",
+				"method": "POST"
+			},
+			{
+				"id": "0a4cae5d-6cd5-4b49-b2df-6604715c62ca",
+				"method": "POST"
+			},
+			{
+				"id": "6b1568bd-fed9-4b7f-aa9f-afba96f742ef",
+				"method": "POST"
+			},
+			{
+				"id": "307e3890-8c30-4b96-b84c-c0f452f95d3e",
+				"method": "POST"
+			},
+			{
+				"id": "8bdce5e5-779c-43bb-86f6-27ca192900b6",
+				"method": "POST"
+			},
+			{
+				"id": "9b9afc79-a676-4577-a0b4-f0b3322bda57",
+				"method": "GET"
+			},
+			{
+				"id": "6bc743b7-8030-4def-af45-6d4ce5ee150d",
+				"method": "GET"
+			},
+			{
+				"id": "18c248ad-3070-4035-b9ee-f1f41627f441",
+				"method": "GET"
+			},
+			{
+				"id": "e0c444ec-c190-42f2-b7de-5d1186ef46b9",
+				"method": "POST"
+			},
+			{
+				"id": "2736a9be-16f5-4690-99a5-09bb12d8f821",
+				"method": "DELETE"
+			},
+			{
+				"id": "2eeacf88-8618-4d81-ae28-b066efed9b2a",
+				"method": "PATCH"
+			},
+			{
+				"id": "ea29d47e-632f-4bc8-ad8d-d0ee2b18e92b",
+				"method": "GET"
+			}
+		]
+	}
+}
